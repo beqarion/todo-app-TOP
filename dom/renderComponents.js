@@ -4,12 +4,14 @@ import { createProjectHTML } from "../components/createProject/index.js";
 const sidebarDOM = document.querySelector(".sidebar");
 const mainDOM = document.querySelector(".main-center");
 
-export const renderMyProjects = (myProjectsDOM) => {
+export const renderMyProjects = (todoManager) => {
+  const myProjectsDOM = createMyProjects(todoManager);
   sidebarDOM.innerHTML = "";
   sidebarDOM.appendChild(myProjectsDOM);
 };
 
-export const renderProject = (myProjectDOM) => {
+export const renderProject = (projectId, projects) => {
+  const myProjectDOM = createProjectHTML(projectId, projects);
   mainDOM.innerHTML = "";
   mainDOM.appendChild(myProjectDOM);
 };

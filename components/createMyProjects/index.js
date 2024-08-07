@@ -1,6 +1,5 @@
 import projectsList from "./projectsList.js";
 import { addProject } from "./addProject.js";
-import { createProjectHTML } from "../createProject/index.js";
 
 import { initiateProjectsList } from "../../utils/utilsDom.js/initiateProjectsList.js";
 
@@ -16,12 +15,7 @@ export const createMyProjects = (todoManager) => {
   myProjectsContainer.appendChild(projectsList(projects));
   myProjectsContainer.appendChild(addProject());
 
-  initiateProjectsList(
-    myProjectsContainer,
-    createProjectHTML,
-    createMyProjects,
-    todoManager
-  );
+  initiateProjectsList(myProjectsContainer, todoManager);
 
   return myProjectsContainer;
 };

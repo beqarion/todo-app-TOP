@@ -26,7 +26,9 @@ export class TodoManager {
   }
 
   createProject(projectName) {
-    this.projects.push(new Project(projectName));
+    const project = new Project(projectName);
+    this.projects.push(project);
+    return project;
   }
 
   getProject(id) {

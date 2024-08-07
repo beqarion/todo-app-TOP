@@ -15,146 +15,85 @@
   <body>
     <div class="root">
       <aside class="sidebar">
-        <!-- <div class="sidebar-title-container">
-          <h3 class="sidebar-title">My Projects</h3>
-        </div>
-        <div class="projects-list"></div>
-        <div class="add-project">
-          <button class="btn add-project-btn">add project</button>
-          <form
-            action=""
-            class="add-project-form"
-            autocomplete="off"
-            style="display: none"
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Project name"
-            />
-            <div class="button-group">
-              <button
-                type="button"
-                class="cancel-add-project"
-              >
-                cancel
-              </button>
-              <button type="submit">add project</button>
-            </div>
-          </form>
-        </div> -->
-      </aside>
-      <main class="main">
-        <div class="main-center content-center">
-          <!-- project -->
-          <div class="project">
-            <h3 class="project-name">Project Name</h3>
-            <!-- tasks -->
-            <div class="tasks">
-              <!-- start of task -->
-              <article class="task">
-                <div class="task-title">
-                  <button class="task-complete-button">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-                      />
-                    </svg>
-                  </button>
-                  <div class="task-name">task name</div>
-                </div>
-                <div class="task-details">
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    class="notes_icon"
+        <div class="myprojects-container">
+          <div class="sidebar-title-container">
+            <h3 class="sidebar-title">My Projects</h3>
+            <!-- <span class="sidebar-toggle-btn">&#9776;</span> -->
+          </div>
+          <div class="projects-list">
+            <ul>
+              <li>
+                <p
+                  class="project-listing"
+                  id="lzk0ixdcl2ojxzu"
+                >
+                  initial project
+                </p>
+                <div class="dropdown-container">
+                  <span
+                    class="dropdown-trigger"
+                    aria-expanded="false"
+                    >☰</span
                   >
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                    >
-                      <path
-                        fill="currentColor"
-                        fill-rule="nonzero"
-                        d="M9.5 1A1.5 1.5 0 0 1 11 2.5v5A1.5 1.5 0 0 1 9.5 9H7.249L5.28 10.97A.75.75 0 0 1 4 10.44V9H2.5A1.5 1.5 0 0 1 1 7.5v-5A1.5 1.5 0 0 1 2.5 1h7zm0 1h-7a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5H5v1.836L6.835 8H9.5a.5.5 0 0 0 .5-.5v-5a.5.5 0 0 0-.5-.5z"
-                      ></path>
-                    </g>
-                  </svg>
-                  <span class="comment-number">1</span>
+                  <div
+                    class="dropdown-menu"
+                    aria-hidden="true"
+                    style="display: none"
+                  >
+                    <span>delete</span>
+                  </div>
                 </div>
-              </article>
-              <!-- end of task -->
-            </div>
-            <div class="add-task-container">
-              <button
-                class="btn add-task-button"
-                data-project-id="lyoy53wgcg017cn"
-              >
-                add task
-              </button>
+              </li>
+              <li>
+                <p
+                  class="project-listing"
+                  id="lzk0ixdc3cjuhxx"
+                >
+                  another project
+                </p>
+                <span>☰</span>
+              </li>
+              <li>
+                <p
+                  class="project-listing"
+                  id="lzk0ixdcwnviak1"
+                >
+                  third project
+                </p>
+                <span>☰</span>
+              </li>
+            </ul>
+          </div>
+          <div class="add-project">
+            <div class="add-project">
+              <button class="btn add-project-btn">add project</button>
               <form
                 action=""
-                class="add-task-form"
+                class="add-project-form"
+                autocomplete="off"
+                style="display: none"
               >
                 <input
                   type="text"
-                  name="task-name"
-                  placeholder="Task name"
+                  name="name"
+                  placeholder="Project name"
                 />
-                <input
-                  type="text"
-                  name="description"
-                  placeholder="Description"
-                />
-                <div class="styled-inputs">
-                  <div class="styled-button">
-                    <input
-                      type="date"
-                      name="duedate"
-                    />
-                    <button
-                      type="button"
-                      id="dateButton"
-                    >
-                      <span class="icon">📅</span>
-                      <span class="label">Due date</span>
-                    </button>
-                  </div>
-                  <!-- dropdown -->
-                  <div class="dropdown-container">
-                    <button
-                      type="button"
-                      class="dropdown-trigger"
-                      aria-expanded="false"
-                    >
-                      <span class="icon">🔽</span>
-                      <span class="label">Priority</span>
-                    </button>
-                    <div
-                      id="dropdown-menu"
-                      class="dropdown-menu"
-                      aria-hidden="true"
-                    >
-                      <div tabindex="0">Priority 1</div>
-                      <div tabindex="0">Priority 2</div>
-                      <div tabindex="0">Priority 3</div>
-                      <div tabindex="0">Priority 4</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="task-form-buttons">
-                  <button type="button">cancel</button>
-                  <button type="submit">add task</button>
+                <div class="button-group">
+                  <button
+                    type="button"
+                    class="cancel-add-project"
+                  >
+                    cancel
+                  </button>
+                  <button type="submit">add project</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
+      </aside>
+      <main class="main">
+        <div class="main-center content-center"></div>
       </main>
     </div>
     <script

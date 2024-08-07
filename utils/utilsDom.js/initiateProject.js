@@ -35,21 +35,10 @@ export const initiateProject = (parentEl) => {
 
   dropdownTrigger.addEventListener("click", function (e) {
     const menu = dropdownContainer.querySelector(".dropdown-menu");
+
     const expanded = this.getAttribute("aria-expanded") === "true";
 
     this.setAttribute("aria-expanded", !expanded);
     menu.style.display = expanded ? "none" : "block";
-  });
-
-  // hide addtask dropdown on side click
-  document.addEventListener("click", function (event) {
-    const trigger = document.querySelector(".dropdown-trigger");
-    const menu = document.getElementById("dropdown-menu");
-
-    if (!trigger.contains(event.target) && !menu.contains(event.target)) {
-      trigger.setAttribute("aria-expanded", "false");
-      menu.style.display = "none";
-      menu.setAttribute("aria-hidden", "true");
-    }
   });
 };

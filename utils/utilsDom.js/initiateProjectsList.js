@@ -1,21 +1,34 @@
-export const initiateProjectsList = (
-  myProjectsContainer,
-  renderProject,
-  renderMyProjects,
-  todoManager
-) => {
+import { renderProject, renderMyProjects } from "../../dom/renderComponents.js";
+
+export const initiateProjectsList = (myProjectsContainer, todoManager) => {
   // initiate projects list with listeners
-  const mainDOM = document.querySelector(".main-center");
   const projects = todoManager.projects;
   console.log(projects);
 
   myProjectsContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("project-listing")) {
       const projectId = event.target.id;
-      mainDOM.innerHTML = "";
-      mainDOM.appendChild(renderProject(projectId, projects));
+      renderProject(projectId, projects);
     }
   });
+
+  // initiate project dropdown menu button
+  const dropDownContainers = myProjectsContainer.querySelectorAll(
+    ".dropdown-container"
+  );
+  console.log(dropDownContainers);
+  dropDownContainers.forEach((dropDownContainer) => {
+    const dropdownTrigger =
+      dropDownContainer.querySelector(".dropdown-trigger");
+
+    dropdownTrigger.addEventListener("click", function (e) {
+      const menu = dropDownContainer.querySelector(".dropdown-menu");
+      const expanded = this.getAttribute("aria-expanded") === "true";
+      this.setAttribute("aria-expanded", !expanded);
+      menu.style.display = expanded ? "none" : "block";
+    });
+  });
+
   // initiate add project section
   const addProjectBtn = myProjectsContainer.querySelector(".add-project-btn");
   const addProjectForm = myProjectsContainer.querySelector(".add-project-form");
@@ -24,15 +37,12 @@ export const initiateProjectsList = (
   );
 
   addProjectBtn.addEventListener("click", () => {
-    addProjectForm.style.display = "block";
+    addProjectForm.style.display = "grid";
     addProjectBtn.style.display = "none";
   });
   cancelAddProject.addEventListener("click", () => {
     addProjectBtn.style.display = "block";
     addProjectForm.style.display = "none";
-  });
-  addProjectForm.addEventListener("submit", (e) => {
-    e.preventDefault();
   });
 
   // handleAddProject
@@ -40,7 +50,11 @@ export const initiateProjectsList = (
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(this).entries());
     console.log(formData);
-    todoManager.createProject("a newly created project");
-    renderMyProjects(todoManager);
+    if (formData.name.length > 0) {
+      const newProject = todoManager.createProject(formData.name);
+      renderMyProjects(todoManager);
+    } else {
+      console.log("project name shouldnt be empty string");
+    }
   });
 };

@@ -48,7 +48,6 @@ function createAddTaskBtn(projectId) {
                   <span class="label">Priority</span>
                 </button>
                 <div
-                  id="dropdown-menu"
                   class="dropdown-menu"
                   aria-hidden="true"
                 >

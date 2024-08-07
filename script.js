@@ -1,7 +1,6 @@
 import { TodoManager } from "./classes.js";
 
-import { createMyProjects } from "./components/createMyProjects/index.js";
-import { createProjectHTML } from "./components/createProject/index.js";
+import { initiateDocumentListeners } from "./utils/utilsDom.js/initiateDocumentListeners.js";
 
 import { renderMyProjects, renderProject } from "./dom/renderComponents.js";
 
@@ -21,7 +20,8 @@ todoManager.createTask("2nd task of first project", projects[0].id);
 // manually add dummy data
 
 // DOM logic flow
-renderMyProjects(createMyProjects(todoManager));
+renderMyProjects(todoManager);
 if (projects.length > 0) {
-  renderProject(createProjectHTML(projects[0].id, projects));
+  renderProject(projects[0].id, projects);
 }
+initiateDocumentListeners();
