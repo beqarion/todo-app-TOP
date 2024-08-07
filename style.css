@@ -71,16 +71,13 @@ Sidebar
 =========
 */
 .sidebar {
-  display: grid;
-  align-content: flex-start;
-  gap: 1rem;
-  padding: 1rem;
   background: hsla(9, 0%, 3%, 1);
   color: hsla(9, 50%, 100%, 0.7);
 }
 .myprojects-container {
   display: grid;
   align-content: flex-start;
+  padding: 1rem;
   gap: 1rem;
 }
 .projects-list {

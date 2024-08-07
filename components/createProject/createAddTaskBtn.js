@@ -1,4 +1,4 @@
-function renderAddTaskBtn(projectId) {
+function createAddTaskBtn(projectId) {
   const addTaskContainer = document.createElement("div");
   addTaskContainer.classList.add("add-task-container");
   addTaskContainer.innerHTML = `
@@ -69,4 +69,4 @@ function renderAddTaskBtn(projectId) {
   return addTaskContainer;
 }
 
-export default renderAddTaskBtn;
+export default createAddTaskBtn;

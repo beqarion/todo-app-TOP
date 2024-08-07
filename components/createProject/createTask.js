@@ -1,4 +1,4 @@
-function renderTask(task) {
+function createTaskDOM(task) {
   return `<!-- start of task -->
             <article class="task">
               <div class="task-title">
@@ -39,4 +39,4 @@ function renderTask(task) {
             <!-- end of task -->`;
 }
 
-export default renderTask;
+export default createTaskDOM;
