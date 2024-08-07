@@ -1,0 +1,274 @@
+/*
+===============
+Variables
+===============
+*/
+
+:root {
+  --clr-white: #fff;
+  --clr-black: #222;
+  --ff-primary: "Raleway", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+/* custom styles */
+.hidden {
+  display: none;
+}
+
+/* Page Styles */
+.root {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+}
+.content-center {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.header {
+}
+.main {
+  padding: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 0.75rem;
+  background: beige;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* 
+=========
+Sidebar
+=========
+*/
+.sidebar {
+  display: grid;
+  align-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: hsla(9, 0%, 3%, 1);
+  color: hsla(9, 50%, 100%, 0.7);
+}
+.myprojects-container {
+  display: grid;
+  align-content: flex-start;
+  gap: 1rem;
+}
+.projects-list {
+  & ul {
+    display: grid;
+    gap: 0.5rem;
+  }
+}
+.project-listing {
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.add-project {
+  display: grid;
+  & .add-project-btn {
+    border: 1px solid rgb(149, 21, 21);
+    font-weight: bold;
+    color: hsla(64, 0%, 10%, 0.9);
+  }
+  & .add-project-form {
+    display: grid;
+    gap: 0.1rem;
+    & input {
+      width: auto;
+      outline: none;
+      padding: 5px 10px;
+    }
+    & button {
+      padding: 5px 10px;
+      color: hsla(64, 0%, 10%, 0.9);
+      font-weight: 600;
+      border-radius: 5px;
+    }
+  }
+}
+
+/* 
+=========
+Project
+=========
+*/
+.project {
+  display: grid;
+  gap: 1rem;
+  & .project-name {
+    text-transform: capitalize;
+  }
+  & .add-task-form {
+    gap: 0.5rem;
+  }
+  & .styled-inputs {
+    display: grid;
+    gap: 0.5rem;
+  }
+}
+
+.tasks {
+  margin: 0.5rem 0;
+}
+
+/* 
+=========
+Task
+=========
+*/
+
+.task-title {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  & .task-complete-button {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid grey;
+    cursor: pointer;
+    position: relative;
+
+    & svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80%;
+      height: 80%;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+    &:hover svg {
+      opacity: 1;
+    }
+  }
+}
+.task-details {
+  margin-left: calc(0.5rem + 20px);
+  font-size: 0.8rem;
+  color: gray;
+}
+
+/* 
+=========
+Add Task Button
+=========
+*/
+
+.add-task-button {
+  /* display: none; */
+  font-size: 1.2rem;
+}
+.add-task-button::before {
+  display: inline-block;
+  content: "+";
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: crimson;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+.add-task-button:hover::before {
+  transform: translateY(-3px);
+}
+
+/* task editor */
+.add-task-form {
+  display: none;
+  padding: 8px;
+  gap: 0.5rem;
+  & input {
+    border: none;
+    outline: none;
+  }
+  & input[name="task-name"]::placeholder {
+    font-weight: bold;
+  }
+  & .styled-button {
+    position: relative;
+    & input {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+  & .task-form-buttons {
+    & button {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  }
+}
+.styled-button button,
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  & .icon {
+    margin-right: 8px;
+  }
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+
+  & .dropdown-menu {
+    display: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    & div {
+      padding: 10px;
+      cursor: pointer;
+      &:hover,
+      &:focus {
+        background-color: #e0e0e0;
+      }
+    }
+  }
+}
