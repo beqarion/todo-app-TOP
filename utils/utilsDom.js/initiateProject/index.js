@@ -1,3 +1,5 @@
+import { initDropdown } from "./initiateDropdown.js";
+
 export const initiateProject = (parentEl) => {
   const addTaskContainer = parentEl.querySelector(".add-task-container");
   // add task form hide/reveal logic
@@ -31,14 +33,5 @@ export const initiateProject = (parentEl) => {
   const dropdownContainer = addTaskContainer.querySelector(
     ".dropdown-container"
   );
-  const dropdownTrigger = dropdownContainer.querySelector(".dropdown-trigger");
-
-  dropdownTrigger.addEventListener("click", function (e) {
-    const menu = dropdownContainer.querySelector(".dropdown-menu");
-
-    const expanded = this.getAttribute("aria-expanded") === "true";
-
-    this.setAttribute("aria-expanded", !expanded);
-    menu.style.display = expanded ? "none" : "block";
-  });
+  initDropdown(dropdownContainer);
 };

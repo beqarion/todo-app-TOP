@@ -31,6 +31,17 @@ export class TodoManager {
     return project;
   }
 
+  deleteProject(projectId) {
+    const index = this.projects.findIndex(
+      (project) => project.id === projectId
+    );
+    if (index !== -1) {
+      this.projects.splice(index, 1);
+    } else {
+      throw new Error(`project with ${projectId} wasnt found.`);
+    }
+  }
+
   getProject(id) {
     let project = this.projects.find((p) => p.id === id);
     return project;

@@ -2,7 +2,7 @@ import createTaskDOM from "./createTask.js";
 import createAddTaskBtn from "./createAddTaskBtn.js";
 
 // initiates (adding events etc) addTask button
-import { initiateProject } from "../../utils/utilsDom.js/initiateProject.js";
+import { initiateProject } from "../../utils/utilsDom.js/initiateProject/index.js";
 
 export { createTaskDOM, createAddTaskBtn };
 
@@ -11,7 +11,6 @@ export function createProjectHTML(projectId, projects) {
 
   const tasks = project.tasks;
 
-  console.log(project);
   const projectDOM = document.createElement("div");
   projectDOM.classList.add("project");
 

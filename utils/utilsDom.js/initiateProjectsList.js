@@ -3,27 +3,35 @@ import { renderProject, renderMyProjects } from "../../dom/renderComponents.js";
 export const initiateProjectsList = (myProjectsContainer, todoManager) => {
   // initiate projects list with listeners
   const projects = todoManager.projects;
-  console.log(projects);
 
   myProjectsContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("project-listing")) {
-      const projectId = event.target.id;
+    const closestProjctsListing = event.target.closest(".project-listing");
+    if (closestProjctsListing) {
+      const projectId = closestProjctsListing.id;
       renderProject(projectId, projects);
     }
   });
 
   // initiate project dropdown menu button
-  const dropDownContainers = myProjectsContainer.querySelectorAll(
-    ".dropdown-container"
-  );
-  console.log(dropDownContainers);
-  dropDownContainers.forEach((dropDownContainer) => {
-    const dropdownTrigger =
-      dropDownContainer.querySelector(".dropdown-trigger");
 
+  const dropDownTriggers =
+    myProjectsContainer.querySelectorAll(".dropdown-trigger");
+
+  function closeAllMenus() {
+    dropDownTriggers.forEach((trigger) => {
+      const menu = trigger.nextElementSibling;
+      trigger.setAttribute("aria-expanded", "false");
+      menu.style.display = "none";
+      menu.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  dropDownTriggers.forEach((dropdownTrigger) => {
     dropdownTrigger.addEventListener("click", function (e) {
-      const menu = dropDownContainer.querySelector(".dropdown-menu");
+      e.stopPropagation();
+      const menu = dropdownTrigger.nextElementSibling;
       const expanded = this.getAttribute("aria-expanded") === "true";
+      closeAllMenus();
       this.setAttribute("aria-expanded", !expanded);
       menu.style.display = expanded ? "none" : "block";
     });
@@ -39,6 +47,8 @@ export const initiateProjectsList = (myProjectsContainer, todoManager) => {
   addProjectBtn.addEventListener("click", () => {
     addProjectForm.style.display = "grid";
     addProjectBtn.style.display = "none";
+
+    addProjectForm.querySelector("input").focus();
   });
   cancelAddProject.addEventListener("click", () => {
     addProjectBtn.style.display = "block";
@@ -53,8 +63,26 @@ export const initiateProjectsList = (myProjectsContainer, todoManager) => {
     if (formData.name.length > 0) {
       const newProject = todoManager.createProject(formData.name);
       renderMyProjects(todoManager);
+      renderProject(newProject.id, projects);
     } else {
       console.log("project name shouldnt be empty string");
     }
+  });
+
+  // handleDeleteProject
+  const deleteProjectButtons =
+    myProjectsContainer.querySelectorAll(".delete-project");
+
+  deleteProjectButtons.forEach((deleteProjectButton) => {
+    deleteProjectButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const closestProjctsListing = e.target.closest(".project-listing");
+      if (closestProjctsListing) {
+        const projectId = closestProjctsListing.id;
+        todoManager.deleteProject(projectId);
+        renderMyProjects(todoManager);
+        renderProject(projects.length > 0 ? projects[0].id : null, projects);
+      }
+    });
   });
 };

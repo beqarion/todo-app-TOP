@@ -93,7 +93,6 @@ Sidebar
       & .dropdown-container {
         position: relative;
         & .dropdown-menu {
-          padding: 0.5rem 1rem;
           border: 1px solid #ccc;
           background: rgba(0, 0, 0, 0.9);
           position: absolute;
@@ -102,6 +101,10 @@ Sidebar
           border-radius: 4px;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           z-index: 1000;
+          & .delete-project {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+          }
         }
       }
     }
@@ -274,6 +277,10 @@ Add Task Button
           background-color: #e0e0e0;
         }
       }
+    }
+    & select {
+      position: absolute;
+      visibility: hidden;
     }
   }
 }

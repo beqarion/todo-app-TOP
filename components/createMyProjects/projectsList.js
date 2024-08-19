@@ -5,11 +5,8 @@ function projectsList(projects) {
   const ul = document.createElement("ul");
   ul.innerHTML = projects
     .map((project) => {
-      return `<li>
-                <p
-                  class="project-listing"
-                  id=${project.id}
-                >
+      return `<li id=${project.id} class="project-listing">
+                <p>
                   ${project.name}
                 </p>
                 <div class="dropdown-container">
@@ -23,7 +20,7 @@ function projectsList(projects) {
                     aria-hidden="true"
                     style="display: none"
                   >
-                    <span>delete</span>
+                    <span class="delete-project">delete</span>
                   </div>
                 </div>
               </li>`;

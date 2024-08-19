@@ -11,8 +11,6 @@ todoManager.createProject("initial project");
 todoManager.createProject("another project");
 todoManager.createProject("third project");
 
-console.log(todoManager.projects);
-
 const projects = todoManager.projects;
 
 todoManager.createTask("task of first project", projects[0].id);

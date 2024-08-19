@@ -51,11 +51,17 @@ function createAddTaskBtn(projectId) {
                   class="dropdown-menu"
                   aria-hidden="true"
                 >
-                  <div tabindex="0">Priority 1</div>
-                  <div tabindex="0">Priority 2</div>
-                  <div tabindex="0">Priority 3</div>
-                  <div tabindex="0">Priority 4</div>
+                  <div class='dropdown-option' data-priority='1' tabindex="0">Priority 1</div>
+                  <div class='dropdown-option' data-priority='2' tabindex="0">Priority 2</div>
+                  <div class='dropdown-option' data-priority='3' tabindex="0">Priority 3</div>
+                  <div class='dropdown-option' data-priority='4' tabindex="0">Priority 4</div>
                 </div>
+                <select name="priority">
+                  <option value="1"></option>
+                  <option value="2"></option>
+                  <option value="3"></option>
+                  <option value="4" selected></option>
+                </select>
               </div>
             </div>
             <div class="task-form-buttons">
