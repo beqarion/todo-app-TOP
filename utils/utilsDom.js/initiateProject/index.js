@@ -17,6 +17,7 @@ export const initiateProject = (parentEl) => {
     addTaskForm.style.display = "none";
     addTaskButton.style.display = "block";
   });
+  // handle add task
   addTaskForm.addEventListener("submit", (e) => {
     e.preventDefault();
   });

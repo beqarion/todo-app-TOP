@@ -11,7 +11,6 @@ export const renderMyProjects = (todoManager) => {
 };
 
 export const renderProject = (projectId, projects) => {
-  console.log({ projectId, projects });
   mainDOM.innerHTML = "";
   if (projectId) {
     const myProjectDOM = createProjectHTML(projectId, projects);
