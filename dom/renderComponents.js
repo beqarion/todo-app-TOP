@@ -1,5 +1,5 @@
-import { createMyProjects } from "../components/createMyProjects/index.js";
-import { createProjectHTML } from "../components/createProject/index.js";
+import { createMyProjects } from "../views/createMyProjects/index.js";
+import { createProjectHTML } from "../views/createProject/index.js";
 
 const sidebarDOM = document.querySelector(".sidebar");
 const mainDOM = document.querySelector(".main-center");

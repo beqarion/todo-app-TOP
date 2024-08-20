@@ -18,8 +18,10 @@ export const initiateProject = (parentEl) => {
     addTaskButton.style.display = "block";
   });
   // handle add task
-  addTaskForm.addEventListener("submit", (e) => {
+  addTaskForm.addEventListener("submit", function (e) {
     e.preventDefault();
+    const formData = Object.fromEntries(new FormData(this).entries());
+    console.log(formData);
   });
 
   // date picker hide under regular button logic

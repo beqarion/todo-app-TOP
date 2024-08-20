@@ -269,12 +269,16 @@ Add Task Button
       border-radius: 4px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       z-index: 1000;
-      & div {
+      & .dropdown-option {
         padding: 10px;
         cursor: pointer;
         &:hover,
         &:focus {
           background-color: #e0e0e0;
+        }
+        &.selected {
+          background-color: rgba(0, 0, 255, 0.5);
+          color: white;
         }
       }
     }

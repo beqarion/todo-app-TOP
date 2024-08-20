@@ -15,11 +15,12 @@ const projects = todoManager.projects;
 
 todoManager.createTask("task of first project", projects[0].id);
 todoManager.createTask("2nd task of first project", projects[0].id);
-// manually add dummy data
+//end of manually adding dummy data
 
 // DOM logic flow
 renderMyProjects(todoManager);
 if (projects.length > 0) {
+  // render first project in the projects list on every projectsList render
   renderProject(projects[0].id, projects);
 }
 initiateDocumentListeners();
