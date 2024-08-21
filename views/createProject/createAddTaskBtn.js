@@ -15,7 +15,7 @@ function createAddTaskBtn(projectId) {
           >
             <input
               type="text"
-              name="task-name"
+              name="taskName"
               placeholder="Task name"
             />
             <input
@@ -66,7 +66,7 @@ function createAddTaskBtn(projectId) {
             </div>
             <div class="task-form-buttons">
               <button type="button" class="cancel-button">cancel</button>
-              <button type="submit">add task</button>
+              <button type="submit" data-project-id=${projectId}>add task</button>
             </div>
           </form>
         `;

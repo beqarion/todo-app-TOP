@@ -10,10 +10,10 @@ export const renderMyProjects = (todoManager) => {
   sidebarDOM.appendChild(myProjectsDOM);
 };
 
-export const renderProject = (projectId, projects) => {
+export const renderProject = (projectId, todoManager) => {
   mainDOM.innerHTML = "";
   if (projectId) {
-    const myProjectDOM = createProjectHTML(projectId, projects);
+    const myProjectDOM = createProjectHTML(projectId, todoManager);
     mainDOM.appendChild(myProjectDOM);
   }
 };

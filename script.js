@@ -13,14 +13,20 @@ todoManager.createProject("third project");
 
 const projects = todoManager.projects;
 
-todoManager.createTask("task of first project", projects[0].id);
-todoManager.createTask("2nd task of first project", projects[0].id);
+todoManager.createTask({
+  taskName: "task of first project",
+  projectId: projects[0].id,
+});
+todoManager.createTask({
+  taskName: "2nd task of first project",
+  projectId: projects[0].id,
+});
 //end of manually adding dummy data
 
 // DOM logic flow
 renderMyProjects(todoManager);
 if (projects.length > 0) {
   // render first project in the projects list on every projectsList render
-  renderProject(projects[0].id, projects);
+  renderProject(projects[0].id, todoManager);
 }
 initiateDocumentListeners();

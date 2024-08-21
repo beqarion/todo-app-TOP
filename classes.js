@@ -12,9 +12,10 @@ export class Project {
 }
 
 export class Task {
-  constructor(name, projectId, description) {
+  constructor(taskData) {
+    const { taskName, projectId, description } = taskData;
     this.id = generateUniqueId();
-    this.name = name;
+    this.taskName = taskName;
     this.projectId = projectId;
     this.description = description;
   }
@@ -46,9 +47,9 @@ export class TodoManager {
     let project = this.projects.find((p) => p.id === id);
     return project;
   }
-  createTask(taskName, projectId) {
-    const task = new Task(taskName, projectId);
-    const theProject = this.projects.find((el) => el.id === projectId);
+  createTask(taskData) {
+    const task = new Task(taskData);
+    const theProject = this.getProject(taskData.projectId);
     theProject.addTask(task);
     return task;
   }

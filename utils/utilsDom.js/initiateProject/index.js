@@ -1,7 +1,8 @@
 import { initDropdown } from "./initiateDropdown.js";
+import { renderProject } from "../../../dom/renderComponents.js";
 
-export const initiateProject = (parentEl) => {
-  const addTaskContainer = parentEl.querySelector(".add-task-container");
+export const initiateProject = (container, todoManager) => {
+  const addTaskContainer = container.querySelector(".add-task-container");
   // add task form hide/reveal logic
   const addTaskButton = addTaskContainer.querySelector(".add-task-button");
   const addTaskForm = addTaskContainer.querySelector(".add-task-form");
@@ -20,8 +21,18 @@ export const initiateProject = (parentEl) => {
   // handle add task
   addTaskForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    const formData = Object.fromEntries(new FormData(this).entries());
-    console.log(formData);
+    const projectId = e.submitter.dataset.projectId;
+    const formData = new FormData(this);
+    formData.set("projectId", projectId);
+
+    const taskData = Object.fromEntries(formData);
+
+    console.log(taskData);
+
+    todoManager.createTask(taskData);
+    // const theProject = todoManager.getProject(projectId);
+
+    renderProject(projectId, todoManager);
   });
 
   // date picker hide under regular button logic

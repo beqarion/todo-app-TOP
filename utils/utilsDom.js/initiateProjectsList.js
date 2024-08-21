@@ -8,7 +8,7 @@ export const initiateProjectsList = (myProjectsContainer, todoManager) => {
     const closestProjctsListing = event.target.closest(".project-listing");
     if (closestProjctsListing) {
       const projectId = closestProjctsListing.id;
-      renderProject(projectId, projects);
+      renderProject(projectId, todoManager);
     }
   });
 
@@ -63,7 +63,7 @@ export const initiateProjectsList = (myProjectsContainer, todoManager) => {
     if (formData.name.length > 0) {
       const newProject = todoManager.createProject(formData.name);
       renderMyProjects(todoManager);
-      renderProject(newProject.id, projects);
+      renderProject(newProject.id, todoManager);
     } else {
       console.log("project name shouldnt be empty string");
     }
@@ -81,7 +81,7 @@ export const initiateProjectsList = (myProjectsContainer, todoManager) => {
         const projectId = closestProjctsListing.id;
         todoManager.deleteProject(projectId);
         renderMyProjects(todoManager);
-        renderProject(projects.length > 0 ? projects[0].id : null, projects);
+        renderProject(projects.length > 0 ? projects[0].id : null, todoManager);
       }
     });
   });

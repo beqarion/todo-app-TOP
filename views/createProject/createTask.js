@@ -13,7 +13,7 @@ function createTaskDOM(task) {
                     />
                   </svg>
                 </button>
-                <div class="task-name">${task.name}</div>
+                <div class="task-name">${task.taskName}</div>
               </div>
               <div class="task-details">
                 <svg

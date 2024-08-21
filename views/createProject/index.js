@@ -6,8 +6,8 @@ import { initiateProject } from "../../utils/utilsDom.js/initiateProject/index.j
 
 export { createTaskDOM, createAddTaskBtn };
 
-export function createProjectHTML(projectId, projects) {
-  const project = projects.find((p) => p.id === projectId);
+export function createProjectHTML(projectId, todoManager) {
+  const project = todoManager.getProject(projectId);
 
   const tasks = project.tasks;
 
@@ -28,6 +28,6 @@ export function createProjectHTML(projectId, projects) {
         </div>`;
   projectDOM.innerHTML = projectHTML;
   projectDOM.appendChild(createAddTaskBtn(project.id));
-  initiateProject(projectDOM);
+  initiateProject(projectDOM, todoManager);
   return projectDOM;
 }
