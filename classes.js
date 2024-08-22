@@ -39,7 +39,7 @@ export class TodoManager {
     if (index !== -1) {
       this.projects.splice(index, 1);
     } else {
-      throw new Error(`project with ${projectId} wasnt found.`);
+      throw new Error(`project with ${projectId} wasn't found.`);
     }
   }
 
@@ -52,6 +52,17 @@ export class TodoManager {
     const theProject = this.getProject(taskData.projectId);
     theProject.addTask(task);
     return task;
+  }
+  deleteTask(projectId, taskId) {
+    const project = this.projects.find((project) => projectId === project.id);
+    if (project) {
+      const index = project.tasks.findIndex((t) => t.id === taskId);
+      if (index !== -1) {
+        project.tasks.splice(index, 1);
+      } else {
+        throw new Error(`Task with ${taskId} wasn't found.`);
+      }
+    }
   }
 
   static loadProjects() {

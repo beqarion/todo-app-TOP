@@ -23,6 +23,7 @@ export const initiateProject = (container, todoManager) => {
     e.preventDefault();
     const projectId = e.submitter.dataset.projectId;
     const formData = new FormData(this);
+
     formData.set("projectId", projectId);
 
     const taskData = Object.fromEntries(formData);

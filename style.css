@@ -170,6 +170,9 @@ Project
 Task
 =========
 */
+.task {
+  cursor: pointer;
+}
 
 .task-title {
   display: flex;
@@ -236,7 +239,7 @@ Add Task Button
     border: none;
     outline: none;
   }
-  & input[name="task-name"]::placeholder {
+  & input[name="taskName"] {
     font-weight: bold;
   }
   & .styled-button {
