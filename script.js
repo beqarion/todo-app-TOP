@@ -16,10 +16,12 @@ const projects = todoManager.projects;
 todoManager.createTask({
   taskName: "task of first project",
   projectId: projects[0].id,
+  priority: 4,
 });
 todoManager.createTask({
   taskName: "2nd task of first project",
   projectId: projects[0].id,
+  priority: 4,
 });
 //end of manually adding dummy data
 

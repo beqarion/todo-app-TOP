@@ -13,11 +13,12 @@ export class Project {
 
 export class Task {
   constructor(taskData) {
-    const { taskName, projectId, description } = taskData;
+    const { taskName, projectId, description, priority } = taskData;
     this.id = generateUniqueId();
     this.taskName = taskName;
     this.projectId = projectId;
     this.description = description;
+    this.priority = priority;
   }
 }
 

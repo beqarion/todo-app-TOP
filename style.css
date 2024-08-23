@@ -122,6 +122,21 @@ Sidebar
     font-weight: bold;
     color: hsla(64, 0%, 10%, 0.9);
   }
+  & .add-project-btn {
+    text-transform: capitalize;
+    font-size: 0.875rem;
+    &::before {
+      display: inline-block;
+      content: "+";
+      margin-right: 0.5rem;
+      font-weight: bold;
+      color: crimson;
+      transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    }
+  }
+  & .add-project-btn:hover::before {
+    transform: translateY(-3px);
+  }
   & .add-project-form {
     display: grid;
     gap: 0.25rem;

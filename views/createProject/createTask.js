@@ -1,8 +1,14 @@
 function createTaskDOM(task) {
+  console.log(task);
+
+  const priority = task.priority;
+
   return `<!-- start of task -->
             <article class="task">
               <div class="task-title">
-                <button class="task-complete-button" data-project-id=${task.projectId} data-task-id=${task.id}>
+                <button class="task-complete-button${
+                  priority ? " priority-" + priority : ""
+                }" data-project-id=${task.projectId} data-task-id=${task.id}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 448 512"
