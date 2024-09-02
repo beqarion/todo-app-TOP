@@ -1,4 +1,4 @@
-export const initDropdown = (container) => {
+export const initPriorityDropdown = (container) => {
   const DEFAULTPRIORITY = 4;
   const label = container.querySelector(".label");
   label.textContent = `Priority ${DEFAULTPRIORITY}`;

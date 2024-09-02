@@ -113,6 +113,13 @@ Sidebar
 .project-listing {
   cursor: pointer;
   text-transform: capitalize;
+  & .dropdown-trigger[aria-expanded="false"] {
+    opacity: 0;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  }
+  &:hover .dropdown-trigger {
+    opacity: 1;
+  }
 }
 
 .add-project {
@@ -177,7 +184,7 @@ Project
 }
 
 .tasks {
-  margin: 0.5rem 0;
+  margin: 2rem 0 0.5rem;
 }
 
 /* 
@@ -187,6 +194,34 @@ Task
 */
 .task {
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.225);
+  }
+  & .dropdown-container {
+    position: relative;
+    & .dropdown-trigger {
+      color: darkslategrey;
+      font-size: 1.2rem;
+      /* opacity: 0; */
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+    }
+    &:hover .dropdown-trigger {
+      opacity: 1;
+    }
+    & .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+  }
 }
 
 .task-title {
@@ -198,9 +233,19 @@ Task
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    border: 1px solid grey;
+    border: 2px solid grey;
     cursor: pointer;
     position: relative;
+    flex-shrink: 0;
+    &.priority-3 {
+      border-color: blue;
+    }
+    &.priority-2 {
+      border-color: orange;
+    }
+    &.priority-1 {
+      border-color: red;
+    }
 
     & svg {
       position: absolute;
