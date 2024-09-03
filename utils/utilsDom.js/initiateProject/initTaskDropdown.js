@@ -6,7 +6,7 @@ export const initTaskDropdown = (tasksContainer, todoManager) => {
     if (trigger) {
       const menu = trigger.nextElementSibling;
       const expanded = trigger.getAttribute("aria-expanded") === "true";
-
+      closeAllMenus()
       trigger.setAttribute("aria-expanded", !expanded);
       menu.style.display = expanded ? "none" : "block";
       absoluteRemainInView(menu);
