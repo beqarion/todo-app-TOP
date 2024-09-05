@@ -1,25 +1,26 @@
 export const initTaskDropdown = (tasksContainer, todoManager) => {
   tasksContainer.addEventListener("click", function (e) {
     const trigger = e.target.closest(".dropdown-trigger");
-    console.log(trigger);
 
     if (trigger) {
       const menu = trigger.nextElementSibling;
       const expanded = trigger.getAttribute("aria-expanded") === "true";
-      closeAllMenus()
+      closeAllMenus();
       trigger.setAttribute("aria-expanded", !expanded);
+
       menu.style.display = expanded ? "none" : "block";
+      menu.setAttribute("aria-hidden", "false");
       absoluteRemainInView(menu);
     }
   });
 
   // helper function
   function closeAllMenus() {
-    const dropDownTriggers =
+    const dropdownTriggers =
       tasksContainer.querySelectorAll(".dropdown-trigger");
-
-    dropDownTriggers.forEach((trigger) => {
+    dropdownTriggers.forEach((trigger) => {
       const menu = trigger.nextElementSibling;
+      absoluteRemainInView(menu);
       trigger.setAttribute("aria-expanded", "false");
       menu.style.display = "none";
       menu.setAttribute("aria-hidden", "true");
@@ -31,9 +32,6 @@ export const initTaskDropdown = (tasksContainer, todoManager) => {
 
     const rect = absolutePosElement.getBoundingClientRect();
     const viewportWidth = window.innerWidth;
-
-    console.log({ rect });
-    console.log(viewportWidth);
 
     if (rect.right > viewportWidth) {
       absolutePosElement.style.right = "0";

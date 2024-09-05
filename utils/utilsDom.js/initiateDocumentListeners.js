@@ -2,7 +2,7 @@ export const initiateDocumentListeners = () => {
   // hide addtask dropdown on side click
   document.addEventListener("click", function (event) {
     const trigger = document.querySelector(".styled-inputs .dropdown-trigger");
-    const menu = document.querySelector(".styled-inputs .dropdown-menu");
+    const menu = trigger.nextElementSibling;
 
     if (trigger && !trigger.contains(event.target)) {
       trigger.setAttribute("aria-expanded", "false");
