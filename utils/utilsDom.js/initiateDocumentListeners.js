@@ -15,7 +15,12 @@ export const initiateDocumentListeners = () => {
     const triggers = Array.from(
       document.querySelectorAll(".projects-list .dropdown-trigger")
     );
-
+    if (
+      triggers &&
+      !triggers.some((t) => t.getAttribute("aria-expanded") === "true")
+    ) {
+      return;
+    }
     let clickedOutside = true;
 
     triggers.forEach((trigger) => {
@@ -32,6 +37,45 @@ export const initiateDocumentListeners = () => {
         trigger.setAttribute("aria-expanded", "false");
         menu.style.display = "none";
         menu.setAttribute("aria-hidden", "true");
+      });
+    }
+  });
+
+  // hide tasks dropdown menu
+  document.addEventListener("click", (e) => {
+    const triggers = Array.from(
+      document.querySelectorAll(".tasks .dropdown-trigger")
+    );
+    if (
+      triggers &&
+      !triggers.some((t) => t.getAttribute("aria-expanded") === "true")
+    ) {
+      return;
+    }
+
+    let clickedOutside = true;
+
+    // triggers.forEach((trigger) => {
+    //   if (trigger.contains(e.target) || menu.contains(e.target)) {
+    //     clickedOutside = false;
+    //     return;
+    //   }
+    // });
+    if (
+      triggers.some((trigger) => {
+        const menu = trigger.nextElementSibling;
+        trigger.contains(e.target) || menu.contains(e.target);
+      })
+    ) {
+      clickedOutside = false;
+    }
+    if (clickedOutside) {
+      triggers.forEach((trigger) => {
+        const menu = trigger.nextElementSibling;
+
+        trigger.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+        menu.style.display = "none";
       });
     }
   });

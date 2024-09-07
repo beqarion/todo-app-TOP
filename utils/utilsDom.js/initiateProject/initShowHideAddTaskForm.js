@@ -29,11 +29,10 @@ export const initShowHideAddTaskForm = (addTaskContainer, todoManager) => {
     console.log(taskData);
 
     todoManager.createTask(taskData);
-    // const theProject = todoManager.getProject(projectId);
 
     renderProject(projectId, todoManager);
   });
-  
+
   // date picker hide under regular button logic
   const dateInput = addTaskContainer.querySelector('input[name="duedate"');
   const dateButton = addTaskContainer.querySelector("#dateButton");

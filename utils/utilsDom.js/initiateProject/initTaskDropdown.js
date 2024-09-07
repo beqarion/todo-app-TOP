@@ -1,5 +1,6 @@
 export const initTaskDropdown = (tasksContainer, todoManager) => {
   tasksContainer.addEventListener("click", function (e) {
+    e.stopPropagation();
     const trigger = e.target.closest(".dropdown-trigger");
 
     if (trigger) {
