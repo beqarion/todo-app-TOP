@@ -270,6 +270,8 @@ Task
 
 .task .menu-list {
   padding: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
   & span {
     display: inline-block;
     padding: 0.5rem 1rem;
